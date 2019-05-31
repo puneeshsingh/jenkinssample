@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 6px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.container {
+    width: 100%;
+    height: 400px;
+    margin: auto;
+    padding: 10px;
+}
+.one {
+    width: 70%;
+    height: 100px;
+    float: left;
+}
+.two {
+    margin-left: 40%;
+    height: 100px;
+}
+.three {
+    margin-left: 40%;
+    height: 100px;
+    margin: 30px 0 0 25px; 
+}
+
+.four {
+    margin-left: 40%;
+    margin: 200px 0 0 25px; 
+    font-family: arial, sans-serif;
+}
+
+</style>
+</head>
+<body>
+
+<h2 style = "text-align:center;">Robot Framework Custom Report</h2>
+
+<div id="piechart" class="one"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Test status', 'Percenatge'],
+  ['Pass', 7],
+  ['Fail', 3]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Test execution status', 'width':500, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+<table class="two">
+  <tr>
+    <th>Test Type</th>
+    <th>Pass</th>
+    <th>Fail</th>
+  </tr>
+  <tr>
+    <td>Automated</td>
+    <td>7</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>Manual</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+</table>
+
+<p style = "text-align:left;" class="four">Functional Overview</p>
+
+<table class="three">
+  <tr>
+    <th>Feature</th>
+    <th>Scenarios</th>
+    <th>Pass</th>
+  </tr>
+  <tr>
+    <td>Feature 1</td>
+    <td>7</td>
+    <td>3</td>
+  </tr>
+   <tr>
+    <td>Feature 2</td>
+    <td>3</td>
+    <td>2</td>
+  </tr>
+   <tr>
+    <td>Feature 3</td>
+    <td>4</td>
+    <td>4</td>
+  </tr>
+   <tr>
+    <td>Feature 4</td>
+    <td>8</td>
+    <td>8</td>
+  </tr>
+   <tr>
+    <td>Feature 5</td>
+    <td>2</td>
+    <td>2</td>
+  </tr>
+  
+</table>
+
+</body>
+</html>
